@@ -1,0 +1,44 @@
+.header {
+    background-color: palevioletred;
+    text-align: right;
+}
+
+.pic {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+}
+
+.sider {
+    background-color: pink;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: rgb(100, 100, 100);
+    font-size: larger;
+    line-height: 40px;
+}
+
+.content {
+    background-color: rgb(255, 242, 244);
+    padding: 50px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.card {
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.picSider {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+}
+
+.footer {
+    text-align: center;
+    /* background-color: palevioletred; */
+}

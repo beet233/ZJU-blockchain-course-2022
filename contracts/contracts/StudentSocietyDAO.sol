@@ -125,4 +125,8 @@ contract StudentSocietyDAO {
         }
         return result;
     }
+
+    function getProposal(uint32 index) view external returns(Proposal memory) {
+        return proposals[index];
+    }
 }
