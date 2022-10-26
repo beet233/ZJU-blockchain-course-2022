@@ -1,6 +1,6 @@
 # ZJU-blockchain-course-2022
 
-⬆ 可以️修改成你自己的项目名。
+[toc]
 
 > 第二次作业要求（可以删除）：
 > 
@@ -26,28 +26,129 @@
     ```bash
     npm install
     ```
-3. 在 `./contracts` 中编译合约，运行如下的命令：
-    ```bash
-    npx hardhat compile
-    ```
-4. ...
-5. ...
+
+3. 在 `./contracts` 中编译合约，可以直接在 remix 在线 IDE 中编译:
+
+    
+
+4. 部署也可以直接在 remix 中部署：
+
+    
+
+5. 在 metamask 中连接本地 ganache 链，并随便导入几个有一些初始 ETH 的账户：
+
+    
+
 6. 在 `./frontend` 中启动前端程序，运行如下的命令：
     ```bash
-    npm run start
+    npm start
     ```
 
 ## 功能实现分析
 
 简单描述：项目完成了要求的哪些功能？每个功能具体是如何实现的？
 
-建议分点列出。
+完成了除 bonus 外的所有功能。
+
+### 获取初始货币
+
+#### 合约
+
+```solidity
+	function getInitBalance() external returns(bool ok) {
+		if (!students[msg.sender].hasInit) {
+            studentERC20.transfer(msg.sender, 100);
+            studentERC20.allow(msg.sender, 100);
+            students[msg.sender].hasInit = true;
+            return true;
+        } else {
+            return false;
+        }
+    }
+```
+
+#### 前端
+
+
+
+### 发起投票
+
+#### 合约
+
+```solidity
+	function raiseNewProposal(string memory topic, string memory text, uint256 startTime, uint256 endTime) external {
+        // 50 BeetCoin to raise a proposal
+        studentERC20.transferFrom(msg.sender, address(this), 50);
+        proposals[proposalIndex] = Proposal(proposalIndex, msg.sender, startTime, endTime, topic, text, 0, 0, false);
+        proposalIndex += 1;
+    }
+```
+
+#### 前端
+
+
+
+### 赞成、反对、结束投票
+
+#### 合约
+
+```solidity
+	function agree(uint32 index, uint256 amount) external returns(bool ok) {
+        if (block.timestamp > proposals[index].startTime && block.timestamp < proposals[index].endTime) {
+            studentERC20.transferFrom(msg.sender, address(this), amount);
+            proposals[index].agree += amount;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function disagree(uint32 index, uint256 amount) external returns(bool ok) {
+        if (block.timestamp > proposals[index].startTime && block.timestamp < proposals[index].endTime) {
+            studentERC20.transferFrom(msg.sender, address(this), amount);
+            proposals[index].disagree += amount;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function finishEndedProposal(uint32 index) external returns(bool ok) {
+        if (block.timestamp > proposals[index].endTime) {
+            proposals[index].finished = true;
+            if (proposals[index].agree > proposals[index].disagree) {
+                // 奖励发起人 100 BeetCoin
+                studentERC20.transfer(proposals[index].proposer, 100);
+                studentERC20.allow(proposals[index].proposer, 100);
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+```
+
+#### 前端
+
+
 
 ## 项目运行截图
 
 放一些项目运行截图。
 
 项目运行成功的关键页面和流程截图。主要包括操作流程以及和区块链交互的截图。
+
+### 领钱
+
+
+
+### 发起投票
+
+
+
+### 支持投票
+
+
 
 ## 参考内容
 
