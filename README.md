@@ -29,15 +29,21 @@
 
 3. 在 `./contracts` 中编译合约，可以直接在 remix 在线 IDE 中编译:
 
-    
+    ![image-20221026230709714](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026230709714.png)
+
+     
 
 4. 部署也可以直接在 remix 中部署：
 
-    
+    ![image-20221026230745173](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026230745173.png)
+
+     
 
 5. 在 metamask 中连接本地 ganache 链，并随便导入几个有一些初始 ETH 的账户：
 
-    
+    ![image-20221026230756567](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026230756567.png)
+
+     
 
 6. 在 `./frontend` 中启动前端程序，运行如下的命令：
     ```bash
@@ -69,7 +75,7 @@
 
 #### 前端
 
-
+![image-20221026230814564](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026230814564.png)
 
 ### 发起投票
 
@@ -86,7 +92,7 @@
 
 #### 前端
 
-
+![image-20221026230833981](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026230833981.png)
 
 ### 赞成、反对、结束投票
 
@@ -130,7 +136,7 @@
 
 #### 前端
 
-
+![image-20221026230846716](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026230846716.png)
 
 ## 项目运行截图
 
@@ -140,13 +146,27 @@
 
 ### 领钱
 
+![image-20221026230906874](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026230906874.png)
 
+![image-20221026230916712](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026230916712.png)
+
+![image-20221026230926102](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026230926102.png)
 
 ### 发起投票
 
+![image-20221026230940822](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026230940822.png)
 
+![image-20221026230950672](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026230950672.png)
 
 ### 支持投票
+
+这里做成了每点一次支持一个 BeetCoin
+
+![image-20221026231020904](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026231020904.png)
+
+![image-20221026231029203](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026231029203.png)
+
+![image-20221026231037812](https://beetpic.oss-cn-hangzhou.aliyuncs.com/img/image-20221026231037812.png)
 
 
 
